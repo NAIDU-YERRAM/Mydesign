@@ -1,0 +1,9 @@
+node_modules/
+dist/
+
+# 🔥 your large files
+public/videos/
+public/images/
+
+# optional
+.env
