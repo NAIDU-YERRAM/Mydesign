@@ -5,20 +5,27 @@ export default function Videos() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   // 🔥 AUTO LOAD VIDEOS (NO MANUAL LIST)
-  const videoModules = import.meta.glob("/public/videos/*.mp4", {
+  const videoModules = import.meta.glob("/videos/*.mp4", {
     eager: true,
     as: "url",
   });
 
-  const shortsModules = import.meta.glob("/public/videos/shorts/*.mp4", {
+  const shortsModules = import.meta.glob("/videos/shorts/*.mp4", {
     eager: true,
     as: "url",
   });
 
   const videoData = {
-    videos: Object.values(videoModules),
-    shorts: Object.values(shortsModules),
-  };
+  videos: [
+    "/videos/video1.mp4",
+    "/videos/video2.mp4",
+    "/videos/video3.mp4",
+  ],
+  shorts: [
+    "/videos/shorts/short1.mp4",
+    "/videos/shorts/short2.mp4",
+  ],
+};
 
   const currentVideos = videoData[category] || [];
 
